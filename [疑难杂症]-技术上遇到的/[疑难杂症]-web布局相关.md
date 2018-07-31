@@ -9,4 +9,7 @@
 
 答：子元素会相对父容器进行布局，效果跟父容器是position:relative，子元素是position:abosolute的效果一样。 在chrome浏览器中，父容器的flex还会影响子元素,如果子元素只设置了right/left，没有设置top/bottom的话。
 
+20180731:
+1.父容器使用了transform，在父容器下的子元素(比如弹窗)如果使用了fixed布局，会导致子元素显示位置混乱。
 
+答：结果造成了fixed布局相对transform变成了abosolute布局效果。不再相对页面了。
