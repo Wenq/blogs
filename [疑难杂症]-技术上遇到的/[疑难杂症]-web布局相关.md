@@ -16,3 +16,13 @@
 
 20180801:
 1.pre页面元素，支持自动换行且支持内容中带的换行符‘\r\n’.
+
+20180802:
+1. react中元素使用props：dangerouslySetInnerHTML，引发xss(跨站脚本攻击)安全性问题。
+解决方案：对输出的内容做xss安全性过滤，防止执行了脚本。
+
+dangerouslySetInnerHTML使用方法：<div className={className} dangerouslySetInnerHTML={{__html: html}} ></div>
+//这里要对'html'内容过滤，才能防止xss攻击
+作用：保留原始html标签，比如换行标示'<br/>'符等。
+
+注：react.js 避免使用 dangerouslySetInnerHTML,可以在大部分情况下避免 XSS 攻击。
