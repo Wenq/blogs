@@ -26,3 +26,8 @@ dangerouslySetInnerHTML使用方法：<div className={className} dangerouslySetI
 作用：保留原始html标签，比如换行标示'<br/>'符等。
 
 注：react.js 避免使用 dangerouslySetInnerHTML,可以在大部分情况下避免 XSS 攻击。
+
+20180804:
+1. 设置了父容器透明度，再去设置该容器的子元素透明度，导致子元素透明效果与父容器透明叠加。即子元素透明被父容器透明度影响。
+问题重现：父容器透明度设置：opacity：0.7; 子元素透明度设置：0.9； 结果子元素透明度是0.7x0.9的效果。（这有疑惑？是效果重叠还是子继承了父的透明度）
+解决办法：设置父容器的透明度采用：rgba(x,x,x,0.7)方式，而不是直接设置opactiy属性。
