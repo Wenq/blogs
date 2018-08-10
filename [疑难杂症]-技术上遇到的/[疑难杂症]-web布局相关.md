@@ -37,3 +37,61 @@ dangerouslySetInnerHTML使用方法：<div className={className} dangerouslySetI
 答：设置元素的css样式‘user-select’为‘none’即可，这种方法比较通用，对各类浏览器兼容性较好。
 其他作用：禁止用户选中页面上内容的效果等。
 参考帖子：http://www.w3cui.com/?p=141
+
+20180810:
+1.client往server发送请求，怎样自动带上cookie？
+2.怎样支持跨域访问？？
+
+答：1.前端进行数据请求有：普通的ajax(json)请求，jsop跨域请求，cors跨域请求，fetch请求...PC端这些请求方式中，普通的ajax(json)请求和jsop跨域请求是默认携带cookie的，而cors跨域请求和fetch请求默认是不携带cookie的。因此，当我们的请求需要携带cookie时，我们就要对cors跨域请求和fetch请求这两中请求方式进行特殊配置处理。
+      针对ajax不支持自带cookie的，需要对ajax进行配置：credentials: 'include'。
+      2. 两步配置：(1).配置client端，支持跨域访问； (2).配置服务端，支持跨域访问。
+fetch请求方式：
+fetch('/community/getCommunityActivityByCommunityId', {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+    },
+credentials: 'include',
+    body:"communityId="+this.props.location.query.communityId
+})
+    .then((res) => { return res.json(); })
+    .then((data) => {
+       //请求成功
+    })
+    .catch((e) => {
+//报错
+    });
+我们要在请求头中添加上这个配置：
+credentials: 'include'
+cors跨域请求方式：
+$.ajax({
+    type: "post",
+    url:"/activity/queryPrizeRecord",
+    dataType: "json",
+　　 xhrFields: {
+        withCredentials: true
+    },
+    crossDomain: true,
+    data:{},
+    success:function(data){
+
+    },
+    error:function(e){
+    }
+})
+我们要在请求头中添加上这个配置：
+　　xhrFields: {
+        withCredentials: true
+    },
+    crossDomain: true
+配上对应的特殊配置后，cookie就会被带上去请求数据了
+以上参考链接：https://www.cnblogs.com/zhuotiabo/p/6230521.html
+
+其他：同源不跨域要求：协议，域名，端口一致。 eg：http://www.example.com:81
+跨域的目的：1.共享cookie；2.跨域获取dom; 3.读写其他窗口的LocalStorage; 
+ajax实现跨域几种方法：
+
+（1）JSONP （2）WebSocket （3）CORS
+
+以上参考链接：https://blog.csdn.net/u013084331/article/details/51114288
+
