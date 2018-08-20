@@ -163,5 +163,10 @@ componentWillReceiveProps：
 参考链接：http://www.css88.com/archives/4996
 
 
+20180820：
+1. web，怎样让图片等比例缩小，从而防止显示失真？ 比如做头像的图片，头像是个正方形且设置border-redius变成了原形，如果上传的图片是矩形呢？
+答：图片组件构成如下：<div><img src='/images/img01.jpg'/></div>. 情况分2种，1为：图片不限制大小，则图片本身多大，就把img和外层div撑多大。2为：如果设置了宽高，比如 width: 50px, height: 50px,  则div的样式为：{width:'50px', height:'50px'，overflow：hidden}, 而此时为了设置的图片被按原图或等比例显示在组件上，则可设置img元素样式为:{max-width: 50px}  注：如果组件设置的宽度>高度，就设置max-width，否则就设置max-height，此时如果设置图片尺寸比50x50小，则会按原图显示，否则会根据图片本身比例进行缩放.
+
+
 
 
