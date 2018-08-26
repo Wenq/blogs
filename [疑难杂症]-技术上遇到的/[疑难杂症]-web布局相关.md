@@ -173,5 +173,12 @@ componentWillReceiveProps：
 mouseout: 不论鼠标指针离开被选元素还是任何子元素，都会触发 mouseout 事件。
 mouseleave: 只有在鼠标指针离开被选元素时，才会触发 mouseleave 事件。即：鼠标只要在A元素或其子元素B上，都不会触发。在B上的leave不会冒泡到A上。
 
+20180826:
+1.[经验]本地开发，如果从github拉取源代码并可以上传修改内容？
+答：1.在github网站创建自己的github帐号；
+2.在github上使用自己创建的帐号创建一个项目，从而得到该项目的'clone and download'链接，这里链接用‘ssh’方式的；
+3. 本地安装git客户端工具(github官方有提供之类工具下载)，设置好git config中的user.name和user.email，同时在本地使用git生成一个ssh key，相关指令类似-》 设置：git config --global user.name "github登录用户名"，git config --global user.email "github注册时用的邮箱"，生成key：ssh-keygen -t rsa -C "github注册时用的邮箱"；
+4. 找到生成的ssh-key的文件id_rsa.pub，复制里面内容设置到github网站的‘setting-SSH and GPG keys’页面，
+设置好SSH keys，之后就可以使用之前创建项目链接，在本地git clone下来了。
 
 
