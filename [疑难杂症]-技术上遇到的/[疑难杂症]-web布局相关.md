@@ -181,4 +181,9 @@ mouseleave: 只有在鼠标指针离开被选元素时，才会触发 mouseleave
 4. 找到生成的ssh-key的文件id_rsa.pub，复制里面内容设置到github网站的‘setting-SSH and GPG keys’页面，
 设置好SSH keys，之后就可以使用之前创建项目链接，在本地git clone下来了。
 
-
+20190515:
+1. 问题描述：给定一张图片，让图片显示为圆形(跟一般头像的圆形效果一样)，且图片宽高为34*34px，同时图片要保持等比例，不能因为拉伸而变形。
+   答：外层套一个div，div内一个img：<div><img src='xxxx.png'/></div>; div样式：让内部img居中，border-radius: 50%，overflow: hidden; 
+   img样式：width: 100%,  height不设置. ->这样最终图片等比例显示为圆形，且宽高都不超过34px.
+   
+   
