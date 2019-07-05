@@ -261,7 +261,8 @@ ajax实现跨域几种方法：
   
   这样最终图片等比例显示为圆形，且宽高都不超过34px.
    
-   ---
+---
+   
    ### 20190705
    1. web页面元素的class属性(eg: calss='class1 class2 class3')，其中用空格分开的多个class其摆放顺序与其声明顺序的关系是怎么样的？
       答：结论如下：
@@ -270,7 +271,21 @@ ajax实现跨域几种方法：
       
       参考链接如下：
       * [class(类)声明顺序](https://blog.csdn.net/qq_40415721/article/details/81410616)
-      * [HTML中设置多个class属性的优先级](https://blog.csdn.net/u011320646/article/details/18152857)
+      * [HTML中设置多个class属性的优先级](https://blog.csdn.net/u011320646/article/details/18152857) 
+    
+   2. react框架开发的component，其key的作用及指定的时机？
+      答：key的作用：用于唯一标示一个component，key变了，component会销毁重建。
+          key的指定时机：在元素元素##第一次创建##时指定才有效，其他时机如高阶包装等都无效。创建的地方一般为
+         
+    ```
+        react.createElement()
+    ```
+          or
+    ```
+        return <div></div>
+    ```
+   
+---
 
 
    
