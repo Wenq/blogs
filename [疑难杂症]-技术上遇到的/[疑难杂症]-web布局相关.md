@@ -261,4 +261,16 @@ ajax实现跨域几种方法：
   
   这样最终图片等比例显示为圆形，且宽高都不超过34px.
    
+   ---
+   ### 20190705
+   1. web页面元素的class属性(eg: calss='class1 class2 class3')，其中用空格分开的多个class其摆放顺序与其声明顺序的关系是怎么样的？
+      答：结论如下：
+      * 1、如果使用多个class去描述元素，css样式的优先级和使用时候的位置无关，只与声明的位置有关，比如class="a1 a2"和class="a2 a1"是等价的。
+      * 2、css样式的优先级是在加载css文件的时候就确定下来的，而且是后来居上（后声明的样式优先级高）。
+      
+      参考链接如下：
+      * [class(类)声明顺序](https://blog.csdn.net/qq_40415721/article/details/81410616)
+      * [HTML中设置多个class属性的优先级](https://blog.csdn.net/u011320646/article/details/18152857)
+
+
    
