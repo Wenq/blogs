@@ -277,11 +277,11 @@ ajax实现跨域几种方法：
       答：key的作用：用于唯一标示一个component，key变了，component会销毁重建。
           key的指定时机：在元素元素##第一次创建##时指定才有效，其他时机如高阶包装等都无效。创建的地方一般为:
         ```
-        react.createElement()
+        react.createElement(component1, {key: id1, ...})
         ```
           or
         ```
-        return <div></div>
+        return <div key={id1} ...></div>
         ```
    
 ---
