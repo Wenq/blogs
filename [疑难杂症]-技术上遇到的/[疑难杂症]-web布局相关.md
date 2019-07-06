@@ -1,4 +1,4 @@
-### 0728
+### 20180728
 **关键词**： 拖拽 鼠标事件 Drag MouseUp  
 1. 拖拽浏览器中特定元素，触发浏览器的默认拖拽行为，从而导致开始时按下鼠标触发了mouseDown，之后移动鼠标触发了drag（浏览器默认），但drag触发后，在drag过程中松开鼠标，浏览器无法触发mouseUp。直接导致在mouseDown-mouseUp过程中的逻辑无法结束。
 
@@ -63,7 +63,7 @@ dangerouslySetInnerHTML使用方法：
 2.怎样支持跨域访问？？
 
 答：
-*1.前端进行数据请求有：普通的ajax(json)请求，jsop跨域请求，cors跨域请求，fetch请求...PC端这些请求方式中，普通的ajax(json)请求和jsop跨域请求是默认携带cookie的，而cors跨域请求和fetch请求默认是不携带cookie的。因此，当我们的请求需要携带cookie时，我们就要对cors跨域请求和fetch请求这两中请求方式进行特殊配置处理。
+*1. 前端进行数据请求有：普通的ajax(json)请求，jsop跨域请求，cors跨域请求，fetch请求...PC端这些请求方式中，普通的ajax(json)请求和jsop跨域请求是默认携带cookie的，而cors跨域请求和fetch请求默认是不携带cookie的。因此，当我们的请求需要携带cookie时，我们就要对cors跨域请求和fetch请求这两中请求方式进行特殊配置处理。
         针对ajax不支持自带cookie的，需要对ajax进行配置：`credentials: 'include'`。
 *2. 两步配置：(1).配置client端，支持跨域访问； (2).配置服务端，支持跨域访问。
 fetch请求方式：
@@ -275,15 +275,14 @@ ajax实现跨域几种方法：
     
    2. react框架开发的component，其key的作用及指定的时机？
       答：key的作用：用于唯一标示一个component，key变了，component会销毁重建。
-          key的指定时机：在元素元素##第一次创建##时指定才有效，其他时机如高阶包装等都无效。创建的地方一般为
-         
-    ```
+          key的指定时机：在元素元素##第一次创建##时指定才有效，其他时机如高阶包装等都无效。创建的地方一般为:
+        ```
         react.createElement()
-    ```
+        ```
           or
-    ```
+        ```
         return <div></div>
-    ```
+        ```
    
 ---
 
