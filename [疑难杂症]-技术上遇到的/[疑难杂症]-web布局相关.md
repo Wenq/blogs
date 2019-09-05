@@ -286,5 +286,14 @@ ajax实现跨域几种方法：
    
 ---
 
+### 20190905
+1. css3 pointer-events样式的作用？
+答：阻止用户的点击动作产生任何效果；阻止缺省鼠标指针的显示；阻止CSS里的 hover 和 active 状态的变化触发事件；阻止JavaScript点击动作触发的事件。
+    更重要的是：元素设置了样式为`style: {pointer-events: none}`，则click/hover该元素，就会穿透过去。
+    [参考连接1](https://www.imooc.com/article/48022)
+    [参考连接2](https://blog.csdn.net/qq_42606051/article/details/81808133)
+
+---
+
 
    
