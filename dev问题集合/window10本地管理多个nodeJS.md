@@ -17,7 +17,7 @@
 网上有个帖子已经介绍非常详细，gnvm工具包使用方法 [传送门](https://www.cnblogs.com/zycb/p/10912736.html)
 
 ### 其他问题
->* 1. 使用`npm install xxx`指令安装包速度慢？ 
+>* 1.使用`npm install xxx`指令安装包速度慢？ 
 答：使用taobao的npm镜像（`cnpm`指令工具可以不是必须的，只是修改获取包的路径）
 >* 2.使用gnvm工具包指令`gnvm install xx.xx.x`安装nodeJS包时，速度慢？
 答：gvnm启用内置的淘宝`TAOBAO`安装路径
