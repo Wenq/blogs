@@ -1,25 +1,45 @@
-# git操作：将一个分支完全覆盖另外一个分支？
+#【git操作】：将一个分支完全覆盖另外一个分支？（如：用master分支代码完全覆盖baseline分支）
 
-## 如：用master分支代码完全覆盖baseline分支
+## 当前分支是baseline分支，想要将master分支上的代码完全覆盖baseline分支，步骤如下：
 
-### 当前分支是baseline分支，想要将master分支上的代码完全覆盖baseline分支，步骤如下：
-
-步骤1.首先切换到baseline分支。
+* 步骤1.首先切换到baseline分支。
 
 `git checkout baseline` //如果当前已经是baseline分支，可以跳过该步骤
 
-步骤2.使用master分支代码内容覆盖baseline分支
+* 步骤2.使用master分支代码内容覆盖baseline分支
 
 `git reset --hard origin/master` //此操作会将你本地的代码完全替换为master分支代码（## 类似先清空本地baseline代码，然后把master代码拷贝过来 ##）
 
-步骤3.执行上面的命令后，baseline分支上的代码就完全被master分支上的代码覆盖了（本地分支），然后将本地分支强行推到远程分支。
+* 步骤3.执行上面的命令后，baseline分支上的代码就完全被master分支上的代码覆盖了（本地分支），然后将本地分支强行推到远程分支。
 
 `git push -f`
 
-（ 参考链接：https://www.cnblogs.com/wangshuazi/p/10243005.html ）
+[https://www.cnblogs.com/wangshuazi/p/10243005.html](参考链接)
 
-# 其他收获：
+## 其他说明：
 1. 依据代码分支A创建的tag：tag_A_01，在代码分支A被删除后，该tag依然存在。tag不依赖代码分支而存在，tag生成了就类似于单独拉了一个代码分支出来。
+2. 这里的覆盖，类似先清空本地baseline代码，然后把master代码拷贝过来。
+3. 【重要】覆盖后，其他开发本地代码还是旧的，如果直接拉取代码（fetch或pull），就会触发merge操作，此时再提交就会带上旧的代码。所以开发自己本地也要执行操作`git reset --hard origin/baseline`，强制把本地基线与远程基线代码保持一致。
 
 
-# git操作：git为什么会产生冲突？
+
+#【git操作】：git为什么会产生冲突？
+
+
+
+# 【git操作】：git cherry-pick xxhash 冲突了怎么办？（目标：保留pick的提交内容的提交信息，比如message、提交人等）
+操作思路：
+  1.解决冲突：编辑冲突文件
+  2.继续cherry-pick操作
+ 整个指令过程：后执行
+  1.执行`git cherry-pick hash值xxxxx` //切换到要提交代码的分支后执行
+  2.编辑冲突文件后，执行`git add .`  //注意空格、点号
+  3.继续执行pick操作，执行`git cherry-pick continue` //此时cherry-pick操作会自动执行完成，无需手动录入提交信息或执行提交操作
+
+# 【git操作】：远程分支怎样完全覆盖本地分支
+
+
+#【git操作】如何退出git编辑器 ？
+2个步骤:
+	1.先输入“:”;
+	2.再输入"q!"后回车; 
