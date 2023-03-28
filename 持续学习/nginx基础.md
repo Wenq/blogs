@@ -17,7 +17,11 @@
 
 实际操作：
 1、图片文件的http代理为https（从而支持将http资源在https下正常加载）：
+背景：chrome浏览器要求https协议下的页面其加载/访问资源也必须是支持https的，但实际很多图片部署的服务器还是http的，导致图片在https页面下无法加载显示
+解决办法：统一设置图片的地址为https协议类型的代理服务器地址，再在这个代理服务器地址中将https地址转为实际的http打头的地址；
+参考帖子：https://www.codercto.com/a/83074.html
 --？？（怎样实现）
 
-【反向代理的nginx配置】
+【反向代理的nginx基本配置】
+查考帖子：https://blog.csdn.net/weixin_42751488/article/details/124165105
 --？？
